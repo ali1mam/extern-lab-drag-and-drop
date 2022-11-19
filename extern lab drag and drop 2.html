@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	
+<head>
+	<title>
+		DRAG AND DROP
+	</title>
+	
+	<link href =
+"https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+			rel = "stylesheet">
+	
+	<script src =
+"https://code.jquery.com/jquery-1.10.2.js">
+	</script>
+	
+	<script src =
+"https://code.jquery.com/ui/1.10.4/jquery-ui.js">
+	</script>
+		
+	<style>
+		body {
+			text-align: center;
+            background-color: antiquewhite;
+		}
+		img{
+			height: 200px;
+			width: 350px;
+		}
+		#imageListId
+		{
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+		}
+		#imageListId div
+		{
+			margin: 0 4px 4px 4px;
+			padding: 0.4em;			
+			display: inline-block;
+		}
+		#outputvalues{
+		margin: 0 2px 2px 2px;
+		padding: 0.4em;
+		padding-left: 1.5em;
+		width: 250px;
+		border: 2px solid dark-green;
+		background : gray;
+		}
+		.listitemClass
+		{
+			border: 1px solid #006400;
+			width: 350px;	
+		}
+		.height{
+			height: 10px;
+		}
+	</style>
+		
+	<script>
+		$(function() {
+			$( "#imageListId" ).sortable({
+			update: function(event, ui) {
+				getIdsOfImages();
+			}//end update		
+			});
+		});
+		
+		function getIdsOfImages() {
+			var values = [];
+			$('.listitemClass').each(function (index) {
+				values.push($(this).attr("id")
+						.replace("imageNo", ""));
+			});
+			
+			$('#outputvalues').val(values);
+		}
+	</script>
+</head>
+	
+<body>
+	<h1 style="color:rgb(47, 21, 221)">Drag And Drop</h1>
+	
+	<div class="height"></div><br>
+	
+	<div id = "imageListId">
+		<div id="imageNo1" class = "listitemClass">
+			<img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=983&q=80" alt="">
+		</div>
+		
+		<div id="imageNo2" class = "listitemClass">
+			<img src="https://media.istockphoto.com/id/522225429/photo/looking-ahead.jpg?s=170667a&w=0&k=20&c=bTOpfO18bIjGgbn41CzIwfhvd82YW4neDfm88s66VWA=" alt="">
+		</div>
+
+		<div id="imageNo3" class = "listitemClass">
+			<img src="https://images.unsplash.com/photo-1490641815614-b45106d6dd04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+		</div>
+
+		<div id="imageNo4" class = "listitemClass">
+			<img src="https://images.unsplash.com/photo-1514316454349-750a7fd3da3a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+		</div>
+
+		<div id="imageNo5" class = "listitemClass">
+			<img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+		</div>
+
+		<div id="imageNo6" class = "listitemClass">
+			<img src="https://images.unsplash.com/photo-1532581140115-3e355d1ed1de?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDl8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+		</div>
+	</div>
+		
+	<div id="outputDiv">
+		<b>Output of ID's of images : </b>
+		<input id="outputvalues" type="text" value="" />
+	</div>
+</body>
+
+</html>
